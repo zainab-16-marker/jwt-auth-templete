@@ -6,7 +6,7 @@ try{
     
  if(!bareareToken)throw new Error ('login requid ')
 
-    const token = bareareToken.split('')[1];
+    const token = bareareToken.split(' ')[1];
 
     const payload = jwt.verify(token, process.env.JWT_SECRET);
     req.user=payload;

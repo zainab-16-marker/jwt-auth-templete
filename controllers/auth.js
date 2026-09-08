@@ -13,7 +13,7 @@ const signup = async (req, res) => {
     
     const user = await User.create({
       username: req.body.username,
-      hashedPassword: bcrypt.hashSync(req.body.password, saltRounds)
+      hashedPassword: bcrypt.hashSync(req.body.password, SALT_ROUDS)
     });
 
     // Construct the payload
