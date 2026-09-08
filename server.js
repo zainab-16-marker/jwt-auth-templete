@@ -18,6 +18,11 @@ app.use(cors());
 app.use(express.json());
 app.use(logger('dev'));
 
+//routs
+app.post('/auth/sign-up', authCntrl.signup)
+
+
+//test routes 
 app.get('/test-jwt/sign-token',testJWTCntrl.signToken)
 app.get('/test-jwt/verify-token',testJWTCntrl.verifyToken)
 // Routes go here
