@@ -20,6 +20,19 @@ app.use(logger('dev'));
 
 //routs
 app.post('/auth/sign-up', authCntrl.signup)
+app.post('/auth/sign-in', authCntrl.login)
+
+
+app.get('/protected',(req,res)=>{
+    try{
+        const userPayload = req.user;
+        res.status(200).json({user});
+
+    }catch(error){
+        res.status(500).json({err:"somthing went wrong"})
+
+    }
+})
 
 
 //test routes 
