@@ -8,6 +8,7 @@ const logger = require('morgan');
 
 const testJWTCntrl=require('./controllers/test-jwt')
 const authCntrl = require('./controllers/auth');
+const isSignIn = require('./middleware/isSignIn');
 mongoose.connect(process.env.MONGODB_URI);
 
 mongoose.connection.on('connected', () => {
@@ -19,6 +20,9 @@ app.use(express.json());
 app.use(logger('dev'));
 
 //routs
+app.use(isSignIn)
+
+
 app.post('/auth/sign-up', authCntrl.signup)
 app.post('/auth/sign-in', authCntrl.login)
 
